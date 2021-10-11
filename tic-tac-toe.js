@@ -6,7 +6,7 @@ let len;
 let squares;
 let statusArea;
 
-window.addEventListener("DOMContentLoaded", function() {boardLayout(); addText(); addHover()});
+window.addEventListener("DOMContentLoaded", function() {boardLayout(); addText(); addHover(); restartGame()});
 
 function boardLayout() {
     squares = [...document.getElementById("board").children];
@@ -85,4 +85,8 @@ function determineWinner() {
         statusArea.textContent = "Move your mouse over a square and click to play an X or an O.";
         statusArea.classList.remove("you-won");
     }
+}
+
+function restartGame() {
+    document.getElementsByClassName("btn")[0].addEventListener("click", function() {location.reload()});
 }
