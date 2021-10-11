@@ -5,7 +5,7 @@ let last = "X";
 let len;
 let squares;
 
-window.addEventListener("DOMContentLoaded", function() {boardLayout(); addText()});
+window.addEventListener("DOMContentLoaded", function() {boardLayout(); addText(); addHover()});
 
 function boardLayout() {
     squares = [...document.getElementById("board").children];
@@ -44,4 +44,16 @@ function manageState(event) {
     gameState[event.target.attributes.id.value] = char;
     event.target.textContent = char;
     event.target.classList.toggle(char);
+}
+
+function addHover() {
+    squares = [...document.getElementById("board").children];
+    for (const div of squares) {
+        div.addEventListener("mouseover", hover);
+        div.addEventListener("mouseout", hover);
+    }
+}
+
+function hover(event) {
+    event.target.classList.toggle("hover");
 }
